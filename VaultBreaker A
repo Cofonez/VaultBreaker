@@ -1,0 +1,40 @@
+#establishing some variables that we will increment
+#for whenever we find an integer that fits the criteria
+less = 0
+greater = 0
+equal = 0
+counter = 0
+
+code = "1234"
+
+
+guess = input("enter your 4 digit guess: ")
+
+
+
+#flag for getting the game to loop
+done = False
+while not done:
+
+    #loop for while the games equals flags arent 4 (ie a fully correct answer)
+    while equal != 4:
+        while counter < len(code):
+            if code[counter]==guess[counter]:
+                equal+=1
+            elif code[counter] > guess[counter]:
+                greater+=1
+            else:
+                less += 1
+            counter += 1
+            if equal == 4:
+                print("congratulations you guessed the code correctly")
+                done = True
+            
+        if equal != 4:
+            print("Your clue is" + "=" * equal + "<" * less + ">" *greater)
+            less=0
+            greater=0
+            counter=0
+            equal=0
+            guess = input("enter your 4 digit guess: ")
+
